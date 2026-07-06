@@ -1,0 +1,30 @@
+.photo-box {
+  text-align: center;
+
+  &__avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__name {
+    margin: 0 0 10px;
+    font-size: 42px;
+    font-weight: 700;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  &__description {
+    max-width: 480px;
+    margin: 20px auto 0;
+    line-height: 1.6;
+  }
+}

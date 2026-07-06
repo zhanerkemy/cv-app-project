@@ -1,0 +1,29 @@
+.expertise {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.expertise__item {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+
+.expertise__date {
+  font-weight: 700;
+}
+
+.expertise__company {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.expertise__job {
+  color: #2fc487;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.expertise__description {
+  line-height: 1.7;
+}

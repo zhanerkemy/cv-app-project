@@ -1,0 +1,23 @@
+.feedback__item{
+    background:#f3f3f3;
+    padding:24px;
+}
+
+.feedback__reporter{
+    margin-top:20px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.feedback__photo{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+
+@media (max-width: 600px) {
+  .feedback {
+    grid-template-columns: 1fr;
+  }
+}

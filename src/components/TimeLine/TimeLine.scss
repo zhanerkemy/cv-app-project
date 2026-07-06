@@ -1,0 +1,31 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 24px;
+}
+
+.timeline__date {
+  font-weight: bold;
+  color: #444;
+}
+
+.timeline__content {
+  background: #f3f3f3;
+  padding: 20px;
+  border-left: 4px solid #2fc487;
+}
+
+.timeline__title {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+.timeline__text {
+  line-height: 1.7;
+}

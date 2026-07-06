@@ -1,0 +1,93 @@
+.panel {
+  position: relative;
+  min-height: 100vh;
+  background: #232936;
+  color: #fff;
+  transition: width 0.3s ease;
+
+  &--open {
+    width: 340px;
+    padding: 60px 36px 32px;
+  }
+
+  &--closed {
+    width: 56px;
+    padding: 0;
+  }
+
+  &__hamburger {
+    position: absolute;
+    top: 18px;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #232936;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 9px;
+    z-index: 20;
+
+    span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: #fff;
+      border-radius: 2px;
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+  }
+
+  .photo-box {
+    margin-bottom: 48px;
+  }
+
+  .photo-box__avatar {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 32px;
+    border: none;
+  }
+
+  .photo-box__name {
+    max-width: 100%;
+    margin: 0;
+    color: #fff;
+    font-size: 38px;
+    line-height: 1.15;
+    text-align: center;
+    word-break: normal;
+  }
+
+  .photo-box__title,
+  .photo-box__description {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .panel {
+    min-height: auto;
+
+    &--open,
+    &--closed {
+      width: 100%;
+      padding: 16px;
+    }
+
+    &__hamburger {
+      position: static;
+      margin-left: auto;
+    }
+
+    .photo-box {
+      display: none;
+    }
+  }
+}

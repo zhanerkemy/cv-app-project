@@ -1,16 +1,26 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import Button from "../../components/Button";
+import PhotoBox from "../../components/PhotoBox";
+import avatar from "../../assets/images/avatar.jpg";
+
 import "./StartPage.scss";
 
 const StartPage = () => {
+  const navigate = useNavigate();
+
   return (
     <main className="start-page">
-      <section className="start-page__content">
-        <h1>John Doe</h1>
-        <p>Programmer. Creative. Innovator</p>
-        <Link className="start-page__button" to="/resume">
-          Know more
-        </Link>
-      </section>
+      <div className="start-page__overlay">
+        <PhotoBox
+          name="Zhanerke Myrzabekova"
+          title="Computer Science Student"
+          description="Welcome to my personal CV portfolio."
+          avatar={avatar}
+        />
+
+        <Button text="Know more" onClick={() => navigate("/resume")} />
+      </div>
     </main>
   );
 };
