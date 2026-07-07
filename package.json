@@ -6,12 +6,15 @@
     "@fortawesome/free-brands-svg-icons": "^7.3.0",
     "@fortawesome/free-solid-svg-icons": "^7.3.0",
     "@fortawesome/react-fontawesome": "^3.3.1",
+    "@reduxjs/toolkit": "^2.12.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
+    "formik": "^2.4.9",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "react-redux": "^9.3.0",
     "react-router-dom": "^7.18.1",
     "react-scripts": "5.0.1",
     "sass": "^1.101.0",
@@ -21,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test:coverage": "npm test -- --coverage --watchAll=false",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +45,25 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "miragejs": "^0.1.48"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js",
+      "!src/reportWebVitals.js",
+      "!src/services/server.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 10,
+        "functions": 10,
+        "lines": 10,
+        "statements": 10
+      }
+    }
   }
 }

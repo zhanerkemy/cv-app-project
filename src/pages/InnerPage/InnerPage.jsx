@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import Box from "../../components/Box";
 import Info from "../../components/Info";
-import TimeLine from "../../components/TimeLine";
 import Expertise from "../../components/Expertise";
 import Portfolio from "../../components/Portfolio";
 import Address from "../../components/Address";
 import Feedback from "../../components/Feedback";
-import Skills from "../../components/Skills";
+import SkillsSection from "../../components/SkillsSection";
+import EducationSection from "../../components/EducationSection";
+import SkillsForm from "../../components/SkillsForm";
 
 import { useCvData } from "../../hooks/useCvData";
 
@@ -18,6 +19,7 @@ import "./InnerPage.scss";
 const InnerPage = () => {
   const { data } = useCvData();
   const [activeSection, setActiveSection] = useState("");
+  const [isSkillsFormOpen, setIsSkillsFormOpen] = useState(false);
 
   const handleNavigate = (section) => {
     setActiveSection(section);
@@ -38,7 +40,7 @@ const InnerPage = () => {
 
       <section id="education">
         <Box title="Education">
-          <TimeLine data={data.education} />
+          <EducationSection />
         </Box>
       </section>
 
@@ -50,16 +52,23 @@ const InnerPage = () => {
 
       <section id="skills">
         <Box>
-            <div className="inner-page__section-header">
+          <div className="inner-page__section-header">
             <h2>Skills</h2>
-            <Link className="inner-page__edit-button" to="/edit">
-                Open edit
-            </Link>
-            </div>
 
-            <Skills skills={data.skills} />
+            <button
+              className="inner-page__edit-button"
+              type="button"
+              onClick={() => setIsSkillsFormOpen(!isSkillsFormOpen)}
+            >
+              {isSkillsFormOpen ? "Close edit" : "Open edit"}
+            </button>
+          </div>
+
+          {isSkillsFormOpen && <SkillsForm />}
+
+          <SkillsSection />
         </Box>
-        </section>
+      </section>
 
       <section id="portfolio">
         <Box title="Portfolio">

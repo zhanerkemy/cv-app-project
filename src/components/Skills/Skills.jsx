@@ -1,6 +1,10 @@
 import "./Skills.scss";
 
 const Skills = ({ skills }) => {
+  if (!skills.length) {
+    return <p>No skills added yet.</p>;
+  }
+
   return (
     <div className="skills">
       {skills.map((skill) => (
