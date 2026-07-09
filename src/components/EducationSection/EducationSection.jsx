@@ -18,7 +18,11 @@ const EducationSection = () => {
 
   if (loading) {
     return (
-      <div className="education-section__loader">
+      <div
+        className="education-section__loader"
+        role="status"
+        aria-label="Loading education"
+      >
         <FontAwesomeIcon icon={faSyncAlt} spin />
       </div>
     );

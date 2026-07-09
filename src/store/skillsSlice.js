@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { loadSkillsFromLocalStorage } from "./localStorage";
 
 export const fetchSkills = createAsyncThunk("skills/fetchSkills", async () => {
   const response = await fetch("/api/skills");
@@ -26,12 +27,15 @@ export const addSkill = createAsyncThunk("skills/addSkill", async (skill) => {
   return response.json();
 });
 
+const savedSkills = loadSkillsFromLocalStorage();
+
 const skillsSlice = createSlice({
   name: "skills",
   initialState: {
-    items: [],
+    items: savedSkills,
     loading: false,
     error: null,
+    hasSavedSkills: savedSkills.length > 0,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -42,7 +46,10 @@ const skillsSlice = createSlice({
       })
       .addCase(fetchSkills.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
+
+        if (!state.hasSavedSkills) {
+          state.items = action.payload;
+        }
       })
       .addCase(fetchSkills.rejected, (state) => {
         state.loading = false;
@@ -50,6 +57,7 @@ const skillsSlice = createSlice({
       })
       .addCase(addSkill.fulfilled, (state, action) => {
         state.items.push(action.payload);
+        state.hasSavedSkills = true;
       });
   },
 });

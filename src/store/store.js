@@ -2,13 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import educationReducer from "./educationSlice";
 import skillsReducer from "./skillsSlice";
+import { saveSkillsToLocalStorage } from "./localStorage";
 
 const localStorageMiddleware = (store) => (next) => (action) => {
   const result = next(action);
 
   if (action.type === "skills/addSkill/fulfilled") {
     const skills = store.getState().skills.items;
-    localStorage.setItem("skills", JSON.stringify(skills));
+    saveSkillsToLocalStorage(skills);
   }
 
   return result;

@@ -12,19 +12,11 @@ export function makeServer() {
       });
 
       this.get("/skills", () => {
-        const savedSkills = localStorage.getItem("skills");
-        return savedSkills ? JSON.parse(savedSkills) : cvData.skills;
+        return cvData.skills;
       });
 
       this.post("/skills", (schema, request) => {
-        const newSkill = JSON.parse(request.requestBody);
-        const savedSkills = localStorage.getItem("skills");
-        const skills = savedSkills ? JSON.parse(savedSkills) : cvData.skills;
-
-        const updatedSkills = [...skills, newSkill];
-        localStorage.setItem("skills", JSON.stringify(updatedSkills));
-
-        return newSkill;
+        return JSON.parse(request.requestBody);
       });
     },
   });
