@@ -24,16 +24,20 @@ const Panel = ({ activeSection, onNavigate }) => {
       </button>
 
       {isOpen && (
-        <div className="panel__content">
+        <div className="panel__profile">
           <PhotoBox
             name="Zhanerke Myrzabekova"
             title="Computer Science Student"
             avatar={avatar}
           />
-
-          <Navigation activeSection={activeSection} onNavigate={onNavigate} />
         </div>
       )}
+
+      <Navigation
+        activeSection={activeSection}
+        onNavigate={onNavigate}
+        isExpanded={isOpen}
+      />
     </aside>
   );
 };
